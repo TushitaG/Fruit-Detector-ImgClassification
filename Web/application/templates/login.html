@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fruit Detective</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/tilt.jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <a href="/home">
+                        <img src="../static/images/fruit-logo2.png" alt="IMG">
+                    </a>
+                </div>
+                <form id='login-form' method='POST' action='/login' class="login100-form validate-form" style="margin-bottom: 100px;">
+                    {{ form.hidden_tag() }}
+                    <span class="login100-form-title"> 
+      Member Login 
+     </span>
+                    <fieldset id="loginForm" class="forms">
+                        {{ form.email.label }}
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            {{ form.email(class="input100 form-control")}} {% if form.email.errors %}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100"> 
+                                <i class="fa fa-envelope" aria-hidden="true"></i> 
+                            </span>
+                        </div>
+                        <ul class="errors">
+                            {% for error in form.email.errors %}
+                            <li>{{ error }}</li>{% endfor %}
+                        </ul>
+                        {% endif %} {{ form.password.label }}
+                        <div class="wrap-input100 validate-input" data-validate="Password is required">
+                            {{ form.password(class='input100 form-control')}} {% if form.email.errors %}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100"> 
+                                <i class="fa fa-lock" aria-hidden="true"></i> 
+                            </span>
+                        </div>
+                        <ul class="errors">
+                            {% for error in form.password.errors %}
+                            <li>{{ error }}</li>{% endfor %}
+                        </ul>
+                        {% endif %}
+                        <div class="container-login100-form-btn">
+                            {{ form.submit(class='login100-form-btn btn btn-primary center')}}
+                        </div>
+                    </fieldset>
+                    <div class="text-center p-t-12">
+                        <span class="txt1"> 
+                                Forgot 
+                            </span>
+                        <a class="txt2" href="#"> 
+                             Username / Password? 
+                            </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+</body>
+
+</html>

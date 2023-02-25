@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Fruit Detective</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script type="text/javascript" src="../static/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div id="home-page">
+        <nav id="mainNavigation" class="navbar navbar-dafault main-navigation" role="navigation"
+            style='margin-bottom: 20px;'>
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <span class="sr-only">Fruit Detective</span>
+                        <a href="/">
+                            <img src="../static/images/logo-main.png" class="img-responsive center-block" alt="logo">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="collapse navbar-collapse" id="main-nav-collapse">
+                    <ul class="nav navbar-nav navbar-right text-uppercase" style='padding-top: 20px; font-size: 16px;'>
+                        <li>
+                            <a href="/"><span>Home</span></a>
+                        </li>
+
+                        <li>
+                            <a href="/predict"><span>Predict</span></a>
+                        </li>
+
+                        <li>
+                            <a href="/history"><span>History</span></a>
+                        </li>
+                        {% if logged_in == True %}
+                        <li>
+                            <a href="/logout" class="btn btn-danger"
+                                style="margin-right: 30px; margin-left: 30px; font-weight: bold; font-family: Arial"
+                                id="logout">Logout</a>
+                        </li>{% elif logged_in==False %}
+                        <li>
+                            <a href="/login" class="btn btn-primary"
+                                style="margin-right: 30px; margin-left: 30px; font-weight: bold; font-family: Arial"
+                                id="logout">Login</a>
+                        </li>{% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header id="header" class="header-wrapper home-parallax home-fade">
+            <div class="header-overlay"></div>
+            <div class="header-wrapper-inner">
+                <div class="container">
+
+                    <div class="welcome-speech">
+                        <h1>Welcome to Fruit Detective</h1>
+
+                        <p>When fruit detective is here, no fear! Fruits are safe and clear!</p>
+                        <a href="/predict" class="btn btn-white">
+                            Predict
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="main-content">
+            <section class="intro bg-white">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img src="assets/img/intro.jpg" class="img-responsive center-block" alt="intro">
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="intro-description">
+                                <h2>The Best Fruit Detection App Ever</h2>
+                                <p>
+                                    Food contains essential nutrients for human beings to grow and develop. Out of so
+                                    many type of food, vegetables and fruits are important for humans' daily healthy
+                                    diet as they provide all the nutrients that helps human to prevent diseases.
+
+                                    However, fruit will get rotten easily if not store properly due to the spread of
+                                    bacteria. Therefore, it is important for food industry to perform inspection on
+                                    fruits before selling to the consumers.
+
+                                    The problem encountered in the human inspection is lower in consistency and accuracy
+                                    as the manual inspection by humans' eye will consume time and energy.</p>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
+
+            <section class="intro text-white" style='background-color: rgb(209, 234, 235);'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="intro-description">
+                                <h1>Join us now!</h1>
+                                <p>
+                                    Join us now! To know whether your fruit is good to eat. Here we use the best built
+                                    model with an accuracy of above 80% to get the predict for your image as accurately
+                                    as possible.
+                                    WHAT ARE YOU WAITING FOR? SNAP AND GO NOW!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <footer class="hidden-xs hidden-sm navbar footer-nav" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <span class="sr-only">&copy;FRUITDETECTIVE</span>
+                    <a href="/">
+                        &copy;FRUITDETECTIVE
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-capitalize">
+                    <li>
+                        <a href="/">
+                            <span>home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/predict">
+                            <span>predict</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/history">
+                            <span>history</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

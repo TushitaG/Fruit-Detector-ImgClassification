@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fruit Detective</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script type="text/javascript" src="../static/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class='home-page'>
+        <nav id="mainNavigation" class="navbar navbar-dafault main-navigation" role="navigation" style='margin-bottom: 20px;'>
+            <div class="container">
+
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <span class="sr-only">Fruit Detective</span>
+                        <a href="/">
+                            <img src="../static/images/logo-main.png" class="img-responsive center-block" alt="logo">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="collapse navbar-collapse" id="main-nav-collapse">
+                    <ul class="nav navbar-nav navbar-right text-uppercase" style='padding-top: 20px; font-size: 16px;'>
+                        <li>
+                            <a href="/"><span>Home</span></a>
+                        </li>
+
+                        <li>
+                            <a href="/predict"><span>Predict</span></a>
+                        </li>
+
+                        <li>
+                            <a href="/history"><span>History</span></a>
+                        </li>
+                        {% if logged_in == True %}
+                        <li>
+                            <a href="/logout" class="btn btn-danger" style="margin-right: 30px; margin-left: 30px; font-weight: bold; font-family: Arial" id="logout">Logout</a>
+                        </li>{% elif logged_in==False %}
+                        <li>
+                            <a href="/login" class="btn btn-primary" style="margin-right: 30px; margin-left: 30px; font-weight: bold; font-family: Arial" id="logout">Login</a>
+                        </li>{% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <section class="intro" style='background: rgb(248,197,197);background: linear-gradient(180deg, rgba(248,197,197,1) 0%, rgba(237,226,226,1) 50%, rgba(248,197,197,1) 100%);'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class='text-center welcome-speech'>
+                            <h1>VIEW YOUR PAST PREDICTIONS HERE</h1>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="intro bg-light-gray">
+            <div class="row-gutters">
+                <div class="col-12 container">
+                    <h2 style='padding-bottom: 30px;'>Prediction History</h2>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr style='font-size: 14px; font-weight: bold;'>
+                                <th>Image</th>
+                                <th>Prediction</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+<tbody style='font-size: 12px;'>
+                            {% for entry in entries %}
+                            <tr>
+                                <td><img src="data:../images/f7e889dd-8aec-11ec-a0a2-005056c00008.png" id="predImg" alt="predictImg" /></td>
+                                <td>{{entry.prediction}}</td>
+                                <td>{{entry.predicted_on.strftime("%d %b %y %H:%M")}}</td>
+                                <td>
+                                    <form name="frmRemoveEntry">
+                                        <input type="submit" class="form-control btn-danger" value="Remove">
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <footer class="hidden-xs hidden-sm navbar footer-nav" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <div class="navbar-brand">
+                                <span class="sr-only">&copy;FRUITDETECTIVE</span>
+                                <a href="/">
+                                    &copy;FRUITDETECTIVE
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="main-nav-collapse">
+                            <ul class="nav navbar-nav navbar-right text-capitalize">
+                                <li>
+                                    <a href="/">
+                                        <span>home</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/predict">
+                                        <span>predict</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/history">
+                                        <span>history</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+        </div>
+</body>
+
+</html>
